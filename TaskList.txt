@@ -1,0 +1,28 @@
+Task 1: Create API CURD
+
+CustomerRouter : done
+
+FounderRouter: done
+
+restaurantRouter: done
+
+favoriteListRestaurantRouter: done
+
+typeOfFoodRouter: done
+
+foodRouter: done
+
+favoriteListFoodRouter: done
+
+listOrderFoodRouter: done
+
+payment: done
+
+
+Task 2: Create GUI and connect 
+
+
+
+
+
+
