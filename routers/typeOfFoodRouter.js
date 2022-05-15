@@ -2,9 +2,9 @@ const router = require("express").Router();
 
 const TypeofFoodController = require("../controller/typeOfFoodController");
 
-router.get("/Restaurant/:id", TypeofFoodController.getTypeofFood);
+router.get("/:id", TypeofFoodController.getTypeofFood);
 
-router.post("/", TypeofFoodController.createTypeFood);
+router.post("/:id", TypeofFoodController.createTypeFood);
 
 router.put("/:id", TypeofFoodController.updateTypeFood);
 

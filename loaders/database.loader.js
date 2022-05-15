@@ -6,6 +6,7 @@ module.exports = async () => {
     console.log("Connect database successfully !");
   } catch (error) {
     console.error("Connect database failed !");
+
     process.exit(0);
   }
 };

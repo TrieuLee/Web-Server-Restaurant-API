@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 
-const { Restaurant, Founder } = require("../models");
+const { Restaurant, Founder, TypeofFood } = require("../models");
 
 class RestaurantController {
   async getRestaurantList(req, res) {
@@ -15,8 +15,9 @@ class RestaurantController {
     try {
       const restaurants = await Restaurant.findAll({
         where: {
-          Fdr_id: Fdr_id,
+          Fdr_id: req.user.toString(),
         },
+        include: TypeofFood,
       });
       res.json(restaurants);
     } catch (error) {
