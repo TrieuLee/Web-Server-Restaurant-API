@@ -1,22 +1,38 @@
 const { Food, TypeofFood } = require("../models");
 
 class FoodController {
-  async getFood(res, req) {
+  async getFood(req, res) {
     try {
-      const { ToF_id } = req.body;
-      const lstFood = await Food.FindAll({
+      const ToF_id = req.params.id;
+      console.log(ToF_id);
+      if (!ToF_id) {
+        return res.status(400).json({
+          errorMessage:
+            "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
+        });
+      }
+      const checkIdTypeofFood = await TypeofFood.findByPk(ToF_id);
+
+      if (!checkIdTypeofFood) {
+        return res.status(400).json({
+          errorMessage:
+            "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
+        });
+      }
+
+      const lstFood = await Food.findAll({
         where: {
           ToF_id: ToF_id,
         },
       });
-
       res.json(lstFood);
     } catch (error) {
+      console.log(error);
       res.status(500).send(error);
     }
   }
 
-  async createFood(res, req) {
+  async createFood(req, res) {
     try {
       const {
         Fd_name,
@@ -25,8 +41,8 @@ class FoodController {
         Fd_description,
         Fd_foodStatus,
         Fd_image,
-        ToF_id,
       } = req.body;
+      const ToF_id = req.params.id;
       // validation
 
       if (
@@ -48,7 +64,7 @@ class FoodController {
         });
       }
 
-      const checkIdTypeofFood = await TypeofFood.FindAll({
+      const checkIdTypeofFood = await TypeofFood.findAll({
         where: {
           ToF_id: ToF_id,
         },
@@ -80,7 +96,7 @@ class FoodController {
     }
   }
 
-  async putFood(res, req) {
+  async putFood(req, res) {
     try {
       const {
         Fd_name,
@@ -89,7 +105,6 @@ class FoodController {
         Fd_description,
         Fd_foodStatus,
         Fd_image,
-        ToF_id,
       } = req.body;
       const idFood = req.params.id;
 
@@ -107,22 +122,14 @@ class FoodController {
           .status(400)
           .json({ errorMessage: "Bạn phải điền đầy đủ các thông tin!" });
       }
-      if (!idFood || !ToF_id) {
+      if (!idFood) {
         return res.status(400).json({
           errorMessage:
             "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
         });
       }
 
-      const checkTypeOfFood = await TypeofFood.findByPk(ToF_id);
-      if (!checkTypeOfFood) {
-        return res.status(400).json({
-          errorMessage:
-            "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
-        });
-      }
-
-      const existingFood = await Food.FindByPK(idFood);
+      const existingFood = await Food.findByPk(idFood);
 
       if (!existingFood) {
         return res.status(400).json({
@@ -131,7 +138,9 @@ class FoodController {
         });
       }
 
-      await Food.update({
+      console.log(existingFood);
+
+      await existingFood.update({
         Fd_name: Fd_name,
         Fd_price: Fd_price,
         Fd_measureUnit: Fd_measureUnit,
@@ -149,7 +158,7 @@ class FoodController {
     }
   }
 
-  async deleteFood(res, req) {
+  async deleteFood(req, res) {
     try {
       const id = req.params.id;
       if (!id) {

@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-const port = 5000;    
+const port = 5000;
 
 const loaders = require("./loaders");
 
@@ -15,7 +15,7 @@ const loaders = require("./loaders");
   app.use("/restaurant", require("./routers/restaurantRouter"));
   app.use("/favListRestaurant", require("./routers/favListRestaurantRouter"));
   app.use("/food", require("./routers/foodRouter"));
-  app.use("/typeofFood", require("./routers/typeofFoodRouter"));
+  app.use("/typeofFood", require("./routers/typeOfFoodRouter"));
   app.use("/favListFood", require("./routers/favListFoodRouter"));
   app.use("/listOrderFood", require("./routers/listOrderFoodRouter"));
 

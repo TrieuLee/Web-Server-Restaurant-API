@@ -2,7 +2,7 @@ const { Op } = require("sequelize");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config/index");
-const { Founder, Restaurant } = require("../models");
+const { Founder, Restaurant, TypeofFood } = require("../models");
 
 class FounderController {
   async getFounder(req, res) {

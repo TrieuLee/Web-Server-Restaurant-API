@@ -8,13 +8,13 @@ const FoodModel = require("./food");
 const ListOrderFoodModel = require("./listOrderFood");
 const PaymentModel = require("./payment");
 const RestaurantModel = require("./restaurant");
-const TypeofFoodModel = require("./typeofFood");
+const TypeofFoodModel = require("./typeOfFood");
 const FounderModel = require("./founder");
 const TableModel = require("./table");
 
 const { DB_HOST, DB_NAME, DB_USER, DB_PASS } = DATABASE;
 
-const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS,{
+const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASS, {
   host: DB_HOST,
   dialect: "mssql",
 });
@@ -125,4 +125,5 @@ module.exports = {
   Payment,
   ListOrderFood,
   TypeofFood,
+  Table,
 };

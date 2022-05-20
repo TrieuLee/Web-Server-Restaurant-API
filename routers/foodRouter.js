@@ -2,8 +2,8 @@ const router = require("express").Router();
 
 const FoodController = require("../controller/foodController");
 
-router.get("/", FoodController.getFood);
-router.post("/", FoodController.createFood);
+router.get("/:id", FoodController.getFood);
+router.post("/:id", FoodController.createFood);
 
 router.put("/:id", FoodController.putFood);
 

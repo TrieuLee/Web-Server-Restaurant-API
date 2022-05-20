@@ -47,13 +47,22 @@ class RestaurantController {
         !Res_time_open ||
         !Res_time_closed ||
         !Res_email ||
-        !Res_image ||
-        !Fdr_id
+        !Res_image
       ) {
         return res
           .status(400)
           .json({ errorMessage: "Bạn phải điền đầy đủ các thông tin!" });
       }
+      console.log({
+        Res_name,
+        Res_phone,
+        Res_address,
+        Res_description,
+        Res_time_open,
+        Res_time_closed,
+        Res_email,
+        Res_image,
+      });
       if (!Fdr_id) {
         return res.status(400).json({
           errorMessage:
