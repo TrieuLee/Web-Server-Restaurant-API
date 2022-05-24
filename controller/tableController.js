@@ -1,7 +1,7 @@
 const { Table, Restaurant } = require("../models");
 
-class TypeofFoodController {
-  async getTypeofFood(req, res) {
+class TableController {
+  async getTable(req, res) {
     try {
       const Res_id = req.params.id;
 
@@ -20,22 +20,22 @@ class TypeofFoodController {
         });
       }
 
-      const typeOfFood = await Table.findAll({
+      const table = await Table.findAll({
         where: {
           Res_id: Res_id,
         },
       });
-      res.json(typeOfFood);
+      res.json(table);
     } catch (error) {
       res.status(500).send(error);
     }
   }
 
-  async createTypeFood(req, res) {
+  async createTable(req, res) {
     try {
-      const { ToF_name } = req.body;
+      const { Tbl_name, Tbl_deposit, Tbl_number } = req.body;
       const Res_id = req.params.id;
-      if (!ToF_name) {
+      if (!Tbl_name || !Tbl_deposit || !Tbl_number) {
         return res
           .status(400)
           .json({ errorMessage: "Bạn phải điền đầy đủ các thông tin!" });
@@ -58,9 +58,11 @@ class TypeofFoodController {
       }
 
       await Table.create({
-        ToF_name: ToF_name,
-        ToF_state: true,
+        Tbl_name: Tbl_name,
+        Tbl_deposit: Tbl_deposit,
+        Tbl_number: Tbl_number,
         Res_id: Res_id,
+        Tbl_status: true,
       });
 
       res.json({
@@ -72,44 +74,37 @@ class TypeofFoodController {
     }
   }
 
-  async updateTypeFood(req, res) {
+  async updateTable(req, res) {
     try {
-      const { ToF_name, ToF_state } = req.body;
-      const ToF_id = req.params.id;
+      const { Tbl_name, Tbl_deposit, Tbl_number, Tbl_status } = req.body;
+      const Tbl_id = req.params.id;
 
-      if (!ToF_name || !ToF_state) {
+      if (!Tbl_name || !Tbl_deposit | !Tbl_number | !Tbl_status) {
         return res
           .status(400)
           .json({ errorMessage: "Bạn phải điền đầy đủ các thông tin!" });
       }
 
-      if (!ToF_id) {
+      if (!Tbl_id) {
         return res.status(400).json({
           errorMessage:
             "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
         });
       }
 
-      const existingTypeofFood = await Table.findByPk(ToF_id);
-      console.log(existingTypeofFood);
-      if (!existingTypeofFood) {
+      const existingTable = await Table.findByPk(Tbl_id);
+      if (!existingTable) {
         return res.status(400).json({
           errorMessage:
             "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
         });
       }
 
-      // const checkRestaurant = await Restaurant.findByPk(Res_id);
-      // if (!checkRestaurant) {
-      //   return res.status(400).json({
-      //     errorMessage:
-      //       "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
-      //   });
-      // }
-
-      await existingTypeofFood.update({
-        ToF_name: ToF_name,
-        ToF_state: ToF_state,
+      await existingTable.update({
+        Tbl_name: Tbl_name,
+        Tbl_deposit: Tbl_deposit,
+        Tbl_number: Tbl_number,
+        Tbl_status: Tbl_status,
       });
 
       res.json({
@@ -120,7 +115,7 @@ class TypeofFoodController {
       res.status(500).send(error);
     }
   }
-  async deleteTypeFood(req, res) {
+  async deleteTable(req, res) {
     try {
       const id = req.params.id;
       if (!id) {
@@ -129,15 +124,15 @@ class TypeofFoodController {
             "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
         });
       }
-      const existingTypeofFood = await Table.findByPk(id);
+      const existingTable = await Table.findByPk(id);
 
-      if (!existingTypeofFood) {
+      if (!existingTable) {
         return res.status(404).json({
           errorMessage:
             "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
         });
       }
-      await existingTypeofFood.destroy();
+      await existingTable.destroy();
 
       res.json({
         status: "success",
@@ -148,4 +143,4 @@ class TypeofFoodController {
     }
   }
 }
-module.exports = new TypeofFoodController();
+module.exports = new TableController();
