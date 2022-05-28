@@ -219,7 +219,6 @@ class FounderController {
       res
         .cookie("token", token, {
           httpOnly: true,
-          secure: false,
           sameSite: "Lax",
         })
         .send();
