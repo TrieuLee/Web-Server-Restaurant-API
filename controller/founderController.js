@@ -219,7 +219,7 @@ class FounderController {
       res
         .cookie("token", token, {
           httpOnly: true,
-          sameSite: "none",
+          SameSite: "none",
           secure: false,
         })
         .send();
