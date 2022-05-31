@@ -8,6 +8,6 @@ module.exports = {
     DB_NAME: process.env.DB_NAME,
     DB_URI: process.env.DB_URI,
   },
-  PORT: 5001,
+  PORT: 5000,
   JWT_SECRET: process.env.JWT_SECRET,
 };
