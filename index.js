@@ -1,10 +1,9 @@
 const express = require("express");
-
+const { DATABASE } = require("./config/index");
 const app = express();
-const port = 5001;
 
 const loaders = require("./loaders");
-
+const { PORT } = DATABASE;
 (async () => {
   await loaders(app);
 
@@ -20,7 +19,7 @@ const loaders = require("./loaders");
   app.use("/listOrderFood", require("./routers/listOrderFoodRouter"));
   app.use("/table", require("./routers/tableRouter"));
 
-  app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+  app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`);
   });
 })();
