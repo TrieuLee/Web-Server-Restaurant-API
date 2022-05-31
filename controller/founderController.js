@@ -219,8 +219,6 @@ class FounderController {
       res
         .cookie("token", token, {
           httpOnly: true,
-          sameSite: "none",
-          secure: true,
         })
         .send();
       // tạo jsonwebtoken cho để lấy token cho user
