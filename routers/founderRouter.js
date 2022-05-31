@@ -15,7 +15,7 @@ router.delete("/", auth, FounderController.deleteFounder);
 
 router.post("/login", FounderController.login);
 
-router.get("/loggedIn", auth, FounderController.loggedIn);
+router.get("/loggedIn/:token", auth, FounderController.loggedIn);
 
 router.post("/changPassword", auth, FounderController.changPassword);
 

@@ -215,20 +215,20 @@ class FounderController {
         },
         JWT_SECRET
       ); // id from mongdb + đuôi password generator
-      console.log({ token }, "hi");
-      res
-        .cookie("token", token, {
-          httpOnly: true,
-          sameSite: "Lax",
-        })
-        .send();
+      //console.log({ token }, "hi");
+      // res
+      //   .cookie("token", token, {
+      //     httpOnly: true,
+      //     sameSite: "Lax",
+      //   })
+      //   .send();
       // tạo jsonwebtoken cho để lấy token cho user
 
-      // res.json({
-      //   status: "success",
-      //   msg: "Đăng nhập thành công !",
-      //   data: existingFounder.dataValues,
-      // });
+      res.json({
+        status: "success",
+        msg: "Đăng nhập thành công !",
+        token: token,
+      });
     } catch (err) {
       res.status(500).send();
     }
