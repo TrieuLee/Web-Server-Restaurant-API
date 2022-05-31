@@ -1,9 +1,8 @@
 const express = require("express");
-const { DATABASE } = require("./config/index");
+const { PORT } = require("./config/index");
 const app = express();
 
 const loaders = require("./loaders");
-const { PORT } = DATABASE;
 (async () => {
   await loaders(app);
 
