@@ -215,12 +215,12 @@ class FounderController {
         },
         JWT_SECRET
       ); // id from mongdb + đuôi password generator
-      console.log({ token });
+      console.log({ token }, "hi");
       res
         .cookie("token", token, {
           httpOnly: true,
           sameSite: "none",
-          secure,
+          secure: true,
         })
         .send();
       // tạo jsonwebtoken cho để lấy token cho user
