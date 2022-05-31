@@ -218,9 +218,8 @@ class FounderController {
       console.log({ token });
       res
         .cookie("token", token, {
-          sameSite: Lax,
-          flavor: choco,
-          Secure,
+          httpOnly: true,
+          sameSite: "Lax",
         })
         .send();
       // tạo jsonwebtoken cho để lấy token cho user
