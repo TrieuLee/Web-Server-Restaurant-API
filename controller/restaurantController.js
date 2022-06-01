@@ -18,7 +18,7 @@ class RestaurantController {
       const { count, rows } = await Restaurant.findAndCountAll({
         where: {
           Res_name: {
-            [Op.like]: `%${keyfind}`,
+            [Op.like]: `%q%`,
           },
         },
         offset: 10,
