@@ -3,7 +3,7 @@ const auth = require("../middleware/auth");
 
 const RestaurantController = require("../controller/restaurantController");
 
-router.get("/:token", auth, RestaurantController.getRestaurantList);
+router.get("/", RestaurantController.getRestaurantList);
 
 router.get(
   "/byFounder/:token",
