@@ -13,7 +13,7 @@ class RestaurantController {
   }
   async findRestaurant(req, res) {
     try {
-      const keyfind = req.params.keyfind;
+      const { keyfind } = req.body;
       const { count, rows } = await Restaurant.findAndCountAll({
         where: {
           Res_name: {
