@@ -5,6 +5,8 @@ const RestaurantController = require("../controller/restaurantController");
 
 router.get("/", RestaurantController.getRestaurantList);
 
+router.get("/findRestaurant/:keyfind", RestaurantController.findRestaurant);
+
 router.get(
   "/byFounder/:token",
   auth,

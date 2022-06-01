@@ -11,6 +11,23 @@ class RestaurantController {
       res.status(500).send();
     }
   }
+  async findRestaurant(req, res) {
+    try {
+      const keyfind = req.params.keyfind;
+      const { count, rows } = await Restaurant.findAndCountAll({
+        where: {
+          Res_name: {
+            [Op.like]: `%${keyfind}`,
+          },
+        },
+        offset: 10,
+        limit: 2,
+      });
+      res.json({ count, rows });
+    } catch (error) {
+      res.status(500).send();
+    }
+  }
   async getRestaurantByFounder(req, res) {
     try {
       const restaurants = await Restaurant.findAll({
