@@ -5,7 +5,7 @@ const RestaurantController = require("../controller/restaurantController");
 
 router.get("/", RestaurantController.getRestaurantList);
 
-router.post("/find/restaurant", RestaurantController.findRestaurant);
+router.post("/find/all", RestaurantController.findRestaurant);
 
 router.get(
   "/byFounder/:token",

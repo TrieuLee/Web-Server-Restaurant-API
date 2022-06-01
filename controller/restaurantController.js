@@ -14,13 +14,13 @@ class RestaurantController {
   async findRestaurant(req, res) {
     try {
       const { keyfind } = req.body;
-      console.log(keyfind);
       const { count, rows } = await Restaurant.findAndCountAll({
         where: {
           Res_name: {
-            [Op.like]: `%q%`,
+            [Op.like]: `%${keyfind}%`,
           },
         },
+        limit: 10,
       });
       res.json({ count, rows });
     } catch (error) {
