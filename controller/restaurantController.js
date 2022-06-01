@@ -21,8 +21,6 @@ class RestaurantController {
             [Op.like]: `%q%`,
           },
         },
-        offset: 10,
-        limit: 2,
       });
       res.json({ count, rows });
     } catch (error) {
