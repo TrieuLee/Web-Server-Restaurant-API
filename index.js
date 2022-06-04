@@ -17,6 +17,7 @@ const loaders = require("./loaders");
   app.use("/favListFood", require("./routers/favListFoodRouter"));
   app.use("/listOrderFood", require("./routers/listOrderFoodRouter"));
   app.use("/table", require("./routers/tableRouter"));
+  app.use("/search", require("./routers/findbyOptionRouter"));
 
   app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`);
