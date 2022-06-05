@@ -5,6 +5,7 @@ module.exports = async () => {
     await sequelize.sync();
     console.log("Connect database successfully !");
   } catch (error) {
+    console.log(error);
     console.error("Connect database failed !");
 
     process.exit(0);
