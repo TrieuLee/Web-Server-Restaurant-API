@@ -1,4 +1,4 @@
-const { TypeofFood, Restaurant } = require("../models");
+const { TypeofFood, Restaurant, Food } = require("../models");
 
 class TypeofFoodController {
   async getTypeofFood(req, res) {
@@ -24,6 +24,7 @@ class TypeofFoodController {
         where: {
           Res_id: Res_id,
         },
+        include: Food,
       });
       res.json(typeOfFood);
     } catch (error) {
