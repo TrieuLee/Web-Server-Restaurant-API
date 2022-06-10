@@ -7,7 +7,11 @@ module.exports = (expressApp) => {
   expressApp.use(cookieParser());
   expressApp.use(
     cors({
-      origin: ["http://localhost:3000", "http://localhost:3001"],
+      origin: [
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "https://v2restaurantparnerhuflit.netlify.app/",
+      ],
       credentials: true,
     })
   );
