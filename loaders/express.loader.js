@@ -11,8 +11,8 @@ module.exports = (expressApp) => {
         "http://localhost:3000",
         "http://localhost:3001",
         "https://v2restaurantparnerhuflit.netlify.app/",
-        "g08-cusrestaurant-traveloka.surge.sh",
-        "g08-restaurant-traveloka.surge.sh",
+        "https://g08-cusrestaurant-traveloka.surge.sh/",
+        "http://g08-restaurant-traveloka.surge.sh/",
       ],
       credentials: true,
     })
