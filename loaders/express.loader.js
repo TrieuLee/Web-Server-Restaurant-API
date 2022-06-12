@@ -5,17 +5,18 @@ const cors = require("cors");
 module.exports = (expressApp) => {
   expressApp.use(express.json());
   expressApp.use(cookieParser());
-  expressApp.use(
-    cors({
-      origin: [
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://g08-cusrestaurant-traveloka.surge.sh/",
-        "http://g08-restaurant-traveloka.surge.sh/",
-        "https://g08-cusrestaurant-traveloka.surge.sh/",
-        "https://g08-restaurant-traveloka.surge.sh/",
-      ],
-      credentials: true,
-    })
-  );
+  // expressApp.use(
+  //   cors({
+  //     origin: [
+  //       "http://localhost:3000",
+  //       "http://localhost:3001",
+  //       "http://g08-cusrestaurant-traveloka.surge.sh/",
+  //       "http://g08-restaurant-traveloka.surge.sh/",
+  //       "https://g08-cusrestaurant-traveloka.surge.sh/",
+  //       "https://g08-restaurant-traveloka.surge.sh/",
+  //     ],
+  //     credentials: true,
+  //   })
+  // );
+  expressApp.use(cors());
 };
