@@ -17,7 +17,7 @@ class FounderController {
     try {
       const user = await Founder.findAll({
         where: {
-          Fdr_id: req.user.toString(),
+          Fdr_id: req.params.id,
         },
         include: Restaurant,
       });
