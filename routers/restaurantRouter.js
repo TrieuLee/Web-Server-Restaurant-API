@@ -5,16 +5,12 @@ const RestaurantController = require("../controller/restaurantController");
 
 router.get("/", RestaurantController.getRestaurantList);
 
-router.get(
-  "/byFounder/:token",
-  auth,
-  RestaurantController.getRestaurantByFounder
-);
+router.get("/byFounder/:idparner", RestaurantController.getRestaurantByFounder);
 
-router.post("/:token", auth, RestaurantController.createRestaurants);
+router.post("/:id", RestaurantController.createRestaurants);
 
-router.put("/:id/:token", auth, RestaurantController.updateRestaurant);
+router.put("/:id/:idparner", RestaurantController.updateRestaurant);
 
-router.delete("/:id/:token", auth, RestaurantController.deleteRestaurant);
+router.delete("/:id", RestaurantController.deleteRestaurant);
 
 module.exports = router;

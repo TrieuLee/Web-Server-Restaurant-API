@@ -15,7 +15,7 @@ class RestaurantController {
     try {
       const restaurants = await Restaurant.findAll({
         where: {
-          Fdr_id: req.user.toString(),
+          Fdr_id: req.params.idparner,
         },
         include: TypeofFood,
       });
@@ -37,7 +37,7 @@ class RestaurantController {
         Res_email,
         Res_image,
       } = req.body;
-      const Fdr_id = req.user.toString();
+      const Fdr_id = req.params.idparner;
       //validation
       if (
         !Res_name ||
@@ -53,16 +53,6 @@ class RestaurantController {
           .status(400)
           .json({ errorMessage: "Bạn phải điền đầy đủ các thông tin!" });
       }
-      console.log({
-        Res_name,
-        Res_phone,
-        Res_address,
-        Res_description,
-        Res_time_open,
-        Res_time_closed,
-        Res_email,
-        Res_image,
-      });
       if (!Fdr_id) {
         return res.status(400).json({
           errorMessage:
@@ -121,8 +111,7 @@ class RestaurantController {
         Res_image,
       } = req.body;
       const idRestaurant = req.params.id;
-      const Fdr_id = req.user.toString();
-      console.log(idRestaurant, Fdr_id);
+      const Fdr_id = req.params.idparner;
       //validation
       if (
         !Res_name ||
