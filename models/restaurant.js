@@ -41,5 +41,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    Fdr_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
 };
