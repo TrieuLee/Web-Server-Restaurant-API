@@ -16,5 +16,17 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    Ord_datetime: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    Ord_Type: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    Ord_customer: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   });
 };
