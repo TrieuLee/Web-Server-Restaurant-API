@@ -60,14 +60,6 @@ class RestaurantController {
         });
       }
 
-      const checkFounder = await Founder.findByPk(Fdr_id);
-      if (!checkFounder) {
-        return res.status(400).json({
-          errorMessage:
-            "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
-        });
-      }
-
       const existingRestaurant = await Restaurant.findOne({
         where: { Res_email: Res_email },
       });
