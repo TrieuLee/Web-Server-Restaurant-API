@@ -7,7 +7,7 @@ router.get("/", RestaurantController.getRestaurantList);
 
 router.get("/byFounder/:idparner", RestaurantController.getRestaurantByFounder);
 
-router.post("/:id", RestaurantController.createRestaurants);
+router.post("/:idparner", RestaurantController.createRestaurants);
 
 router.put("/:id/:idparner", RestaurantController.updateRestaurant);
 
