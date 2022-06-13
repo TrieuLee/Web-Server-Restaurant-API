@@ -6,6 +6,7 @@ class FindByOption {
   async findRestaurant(req, res) {
     try {
       const { keyfind } = req.body;
+      console.log(keyfind);
       if (keyfind === "") {
         const res = await Restaurant.findAll();
         res.json(res);
