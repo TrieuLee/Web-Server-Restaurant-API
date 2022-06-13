@@ -17,7 +17,6 @@ class RestaurantController {
         where: {
           Fdr_id: req.params.idparner,
         },
-        include: TypeofFood,
       });
       res.json(restaurants);
     } catch (error) {
@@ -128,16 +127,8 @@ class RestaurantController {
         });
       }
 
-      const checkFounder = await Founder.findByPk(Fdr_id);
-      if (!checkFounder) {
-        return res.status(400).json({
-          errorMessage:
-            "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
-        });
-      }
-
       const checkRestaurant = await Restaurant.findByPk(idRestaurant);
-      console.log(checkRestaurant.Fdr_id, Fdr_id);
+
       if (!checkRestaurant || checkRestaurant.Fdr_id !== Fdr_id) {
         return res.status(400).json({
           errorMessage:
