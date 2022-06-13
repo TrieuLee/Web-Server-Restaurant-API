@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     Fd_image: {
-      type: DataTypes.BOOLEAN,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   });
