@@ -19,12 +19,7 @@ class ListOrderFoodController {
         });
       }
 
-      const listOrderFoods = await ListOrderFoodController.findAll({
-        where: {
-          Cus_id: Cus_id,
-        },
-        include: Food,
-      });
+      const listOrderFoods = await ListOrderFoodController.findAll();
       res.json(listOrderFoods);
     } catch (error) {
       res.status(500).send(error);
