@@ -52,14 +52,6 @@ Table.belongsTo(Restaurant, {
   foreignKey: "Res_id",
 });
 
-Founder.hasMany(Restaurant, {
-  foreignKey: "Fdr_id",
-});
-
-Restaurant.belongsTo(Founder, {
-  foreignKey: "Fdr_id",
-});
-
 Restaurant.hasMany(TypeofFood, {
   foreignKey: "Res_id",
 });

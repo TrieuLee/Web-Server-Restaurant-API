@@ -38,6 +38,7 @@ class RestaurantController {
         Res_image,
       } = req.body;
       const Fdr_id = req.params.idparner;
+      console.log(Fdr_id);
       //validation
       if (
         !Res_name ||
