@@ -4,7 +4,6 @@ class FoodController {
   async getFood(req, res) {
     try {
       const ToF_id = req.params.id;
-      console.log(ToF_id);
       if (!ToF_id) {
         return res.status(400).json({
           errorMessage:
@@ -137,8 +136,6 @@ class FoodController {
             "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
         });
       }
-
-      console.log(existingFood);
 
       await existingFood.update({
         Fd_name: Fd_name,

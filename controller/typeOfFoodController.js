@@ -92,7 +92,7 @@ class TypeofFoodController {
       }
 
       const existingTypeofFood = await TypeofFood.findByPk(ToF_id);
-      console.log(existingTypeofFood);
+
       if (!existingTypeofFood) {
         return res.status(400).json({
           errorMessage:

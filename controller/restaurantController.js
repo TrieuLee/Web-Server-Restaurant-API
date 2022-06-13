@@ -37,7 +37,6 @@ class RestaurantController {
         Res_image,
       } = req.body;
       const Fdr_id = req.params.idparner;
-      console.log(Fdr_id);
       //validation
       if (
         !Res_name ||
@@ -135,7 +134,6 @@ class RestaurantController {
             "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
         });
       }
-      console.log(checkRestaurant, checkRestaurant.Fdr_id);
 
       const existingRestaurant = await Restaurant.findAll({
         where: {
