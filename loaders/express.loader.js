@@ -10,10 +10,10 @@ module.exports = (expressApp) => {
       origin: [
         "http://localhost:3000",
         "http://localhost:3001",
-        "http://g08-cusrestaurant-traveloka.surge.sh/",
-        "http://g08-restaurant-traveloka.surge.sh/",
-        "https://g08-cusrestaurant-traveloka.surge.sh/",
-        "https://g08-restaurant-traveloka.surge.sh/",
+        "http://g08-cusrestaurant-traveloka.surge.sh",
+        "http://g08-restaurant-traveloka.surge.sh",
+        "https://g08-cusrestaurant-traveloka.surge.sh",
+        "https://g08-restaurant-traveloka.surge.sh",
       ],
       credentials: true,
     })
