@@ -7,7 +7,7 @@ class FindByOption {
     try {
       const { keyfind } = req.body;
       console.log(keyfind);
-      if (keyfind === "") {
+      if (keyfind === "@") {
         const res = await Restaurant.findAll();
         res.json(res);
       } else {
