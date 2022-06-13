@@ -135,6 +135,7 @@ class RestaurantController {
             "Đã phát sinh lỗi, vui lòng liên hệ Developer để phản ánh",
         });
       }
+      console.log(checkRestaurant, checkRestaurant.Fdr_id);
 
       const existingRestaurant = await Restaurant.findAll({
         where: {
